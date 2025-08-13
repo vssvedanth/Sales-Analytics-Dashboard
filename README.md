@@ -1,133 +1,126 @@
-Sales Analytics Dashboard — Power BI & BigQuery
-📌 Project Overview
-The Sales Analytics Dashboard is a real-time business intelligence solution designed to help sales leadership monitor performance, identify trends, and make data-driven decisions.
-The project integrates multi-source sales data from disparate systems into a single, unified dashboard with advanced KPIs, interactive visuals, and automated refresh capabilities.
+# Sales Analytics Dashboard — Power BI & BigQuery
 
-By leveraging Google BigQuery for cloud-based storage and query execution, and Power BI for visualization and analytics, the solution reduced manual reporting efforts by 12 hours per week and provided instant, actionable insights to stakeholders.
+## 📌 Project Overview
 
-🎯 Objectives
-Consolidate data from multiple sales databases into a single, interactive dashboard.
+This project is a real-time business intelligence solution designed to help sales leadership monitor performance, identify trends, and make data-driven decisions. The dashboard consolidates multi-source sales data from disparate systems into a single, unified view with advanced KPIs, interactive visuals, and automated refresh capabilities.
 
-Automate data refresh for real-time analytics.
+By leveraging **Google BigQuery** for cloud-based storage and query execution, and **Power BI** for visualization and analytics, this solution reduced manual reporting efforts by **12 hours per week** and provided instant, actionable insights to stakeholders.
 
-Provide leadership with key sales performance metrics and actionable insights.
+-----
 
-Reduce manual report preparation time and improve decision-making speed.
+## 🎯 Objectives
 
-📂 Data Sources
+  * Consolidate data from multiple sales databases into a single, interactive dashboard.
+  * Automate data refresh for real-time analytics.
+  * Provide leadership with key sales performance metrics and actionable insights.
+  * Reduce manual report preparation time and improve decision-making speed.
+
+-----
+
+## 📂 Data Sources
+
 The project integrates and transforms data from multiple systems, including:
 
-CRM Database — Customer and account details.
+  * **CRM Database** — Customer and account details.
+  * **ERP System** — Transactional sales orders, invoicing, and payment status.
+  * **Regional Pricing Data** — For median price comparisons.
+  * **Google Sheets / Excel** — Ad-hoc sales target data provided by managers.
 
-ERP System — Transactional sales orders, invoicing, and payment status.
+All data is ingested into **Google BigQuery** for centralized querying.
 
-Regional Pricing Data — For median price comparisons.
+-----
 
-Google Sheets / Excel — Ad-hoc sales target data provided by managers.
+## 🛠️ Tools & Technologies
 
-Data from all sources is ingested into Google BigQuery for centralized querying.
+| Category | Tool / Technology |
+| :--- | :--- |
+| **Cloud Platform** | Google Cloud Platform (GCP) |
+| **Database & Query Engine** | Google BigQuery |
+| **Visualization Tool** | Power BI Desktop / Power BI Service |
+| **Data Transformation** | Power Query |
+| **Calculation Language** | DAX (Data Analysis Expressions) |
+| **Data Manipulation** | Microsoft Excel |
 
-🛠️ Tools & Technologies
-Cloud Platform: Google Cloud Platform (GCP)
+-----
 
-Database & Query Engine: Google BigQuery
+## ⚙️ Data Processing Workflow
 
-Visualization Tool: Power BI Desktop / Power BI Service
+### Data Ingestion
 
-Data Transformation: Power Query
+Sales, customer, and pricing data are imported into Google BigQuery from multiple sources (CRM, ERP, spreadsheets) using BigQuery connectors and scheduled ETL jobs.
 
-Calculation Language: DAX (Data Analysis Expressions)
+### Data Transformation
 
-Data Manipulation: Microsoft Excel
+Transformations applied in **Power Query** include:
 
-⚙️ Data Processing Workflow
-Data Ingestion
+  * Column renaming and formatting.
+  * Null value handling and data type corrections.
+  * Merging datasets on customer and order keys.
+  * Calculating derived fields (e.g., profit margin %, discount %).
 
-Sales, customer, and pricing data imported into Google BigQuery from multiple sources (CRM, ERP, spreadsheets).
+### Data Modeling
 
-Data loaded via BigQuery connectors and scheduled ETL jobs.
+A **star schema** design is implemented with:
 
-Data Transformation
+  * **Fact Table**: Sales transactions.
+  * **Dimension Tables**: Customers, Products, Regions, Dates.
 
-Applied transformations in Power Query:
+Relationship mapping is used for optimal **DAX** performance.
 
-Column renaming and formatting.
+### Metric Calculations (DAX)
 
-Null value handling and data type corrections.
+Key metrics calculated using DAX include:
 
-Merging datasets on customer and order keys.
+  * YOY Sales Growth
+  * Regional Median Price
+  * Rolling 12-Month Sales Total
+  * YTD Performance
+  * Average Order Value (AOV), Win Rate, and Sales per Region.
 
-Calculating derived fields (profit margin %, discount %, etc.).
+### Visualization & Dashboard Design
 
-Data Modeling
+Interactive visuals in the dashboard include:
 
-Star schema design with:
+  * KPI cards for high-level metrics.
+  * Line charts for sales trends.
+  * Bar charts for regional performance.
+  * Map visuals for geospatial sales insights.
+  * Slicers for product category, date, and region filtering.
 
-Fact Table: Sales transactions.
+### Deployment & Automation
 
-Dimension Tables: Customers, Products, Regions, Dates.
+The report is published to the **Power BI Service**. A scheduled refresh is configured via the BigQuery connector for real-time updates. The dashboard is shared with sales leadership through a Power BI app workspace with role-based access.
 
-Relationship mapping for optimal DAX performance.
+-----
 
-Metric Calculations (DAX)
+## 📊 Key Features
 
-YOY Sales Growth
+  * **Real-time Insights** — Automatic daily data refresh via the BigQuery connector.
+  * **Custom DAX Metrics** — Complex KPIs for accurate business tracking.
+  * **Interactive Filtering** — Region, product, and date-based drill-downs.
+  * **Performance Benchmarking** — YOY, YTD, and rolling totals for trend analysis.
+  * **Data Integration** — Consolidates CRM, ERP, and manual inputs into one unified view.
 
-Regional Median Price
+-----
 
-Rolling 12-Month Sales Total
+## 📈 Business Impact
 
-YTD Performance
+  * **12 hours/week** saved in manual report preparation.
+  * Improved decision-making with real-time visibility into sales metrics.
+  * Enabled data-driven performance reviews at regional and product levels.
+  * Enhanced forecasting accuracy through historical trend analysis.
 
-Average Order Value (AOV), Win Rate, and Sales per Region.
+-----
 
-Visualization & Dashboard Design
+## 📷 Dashboard Preview
 
-Interactive visuals including:
+-----
 
-KPI cards for high-level metrics.
+## 🚀 How to Run Locally
 
-Line charts for sales trends.
-
-Bar charts for regional performance.
-
-Map visuals for geospatial sales insights.
-
-Slicers for product category, date, and region filtering.
-
-Deployment & Automation
-
-Published report to Power BI Service.
-
-Configured scheduled refresh via BigQuery connector for real-time updates.
-
-Shared with sales leadership via Power BI app workspace with role-based access.
-
-📊 Key Features
-Real-time Insights — Automatic daily data refresh via BigQuery connector.
-
-Custom DAX Metrics — Complex KPIs for accurate business tracking.
-
-Interactive Filtering — Region, product, and date-based drill-downs.
-
-Performance Benchmarking — YOY, YTD, and rolling totals for trend analysis.
-
-Data Integration — Consolidates CRM, ERP, and manual inputs into one unified view.
-
-📈 Business Impact
-12 hours/week saved in manual report preparation.
-
-Improved decision-making with real-time visibility into sales metrics.
-
-Enabled data-driven performance reviews at regional and product levels.
-
-Enhanced forecasting accuracy through historical trend analysis.
-
-📷 Dashboard Preview
-
-
-🚀 How to Run Locally
-Clone the repository.
-
-Connect your Power BI Desktop file to your Google BigQuery instance.
-
+1.  **Clone the repository**:
+    ```bash
+    git clone [repository-url]
+    ```
+2.  **Connect Power BI Desktop**:
+    Open the Power BI file (`.pbix`) and connect it to your Google BigQuery instance by updating the data source credentials.
